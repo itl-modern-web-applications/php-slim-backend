@@ -6,19 +6,18 @@ use Psr\Container\ContainerInterface;
 class PostsController {
   protected $posts;
 
-  // CREATE method
   public function __construct (ContainerInterface $container) {
     $this->posts = $container->get('db')->table('posts');
   }
 
-  // READ method
+  // CREATE method
   public function create (Request $request, Response $response) {
     $id = $this->posts->insertGetId($request->getParsedBody());
 
     return $response = $response->withJson(['inserted-id' => $id]);
   }
 
-  // UPDATE method
+  // READ method
   public function read (Request $request, Response $response, $args) {
     $id = $args['id'] ?? false;
 
@@ -29,13 +28,14 @@ class PostsController {
     return $response = $response->withJson($data);
   }
 
-  // DELETE method
+  // UPDATE method
   public function update (Request $request, Response $response, $args) {
     $this->posts->where('id', $args['id'])->update($request->getParsedBody());
 
     return $response = $response->withJson(['updated-id' => $args['id']]);
   }
 
+  // DELETE method
   public function delete (Request $request, Response $response, $args) {
     $this->posts->where('id', $args['id'])->delete();
 
