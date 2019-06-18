@@ -1,0 +1,13 @@
+{
+  "name": "itl-modern-web-applications/rest-api",
+  "description": "A Slim Framework RESTful API example",
+  "require": {
+    "slim/slim": "^3.12",
+    "illuminate/database": "^5.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "app/src/Controllers"
+    }
+  }
+}
