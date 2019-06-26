@@ -1,5 +1,5 @@
 {
-  "name": "itl-modern-web-applications/rest-api",
+  "name": "slim-rest-api-example",
   "description": "A Slim Framework RESTful API example",
   "require": {
     "slim/slim": "^3.12",
@@ -7,7 +7,10 @@
   },
   "autoload": {
     "psr-4": {
-      "": "app/src/Controllers"
+      "App\\": "app/src"
     }
+  },
+  "scripts": {
+      "start": "php -S localhost:8080 -t public"
   }
 }

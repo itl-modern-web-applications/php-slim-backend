@@ -1,18 +1,15 @@
 <?php
-// Load Slim framework
+
+use Slim\App;
+
 require __DIR__ . '/../vendor/autoload.php';
 
-// Load settings and instantiate application
 $settings = require __DIR__ . '/src/settings.php';
-$app = new Slim\App($settings);
-
-// Load and push dependencies to app instance
 $dependencies = require __DIR__ . '/src/dependencies.php';
-$dependencies($app);
-
-// Load and push routes to app instance
 $routes = require __DIR__ . '/src/routes.php';
+
+$app = new App($settings);
+$dependencies($app);
 $routes($app);
 
-// Return app instance
 return $app;

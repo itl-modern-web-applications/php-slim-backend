@@ -1,10 +1,10 @@
 <?php
+
 return [
   'settings' => [
     'displayErrorDetails' => true,
     'addContentLengthHeader' => false,
 
-    // Config for illuminate/database dependency
     'db' => [
       'driver' => 'mysql',
       'host' => 'localhost',
